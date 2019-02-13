@@ -1,0 +1,46 @@
+﻿<Window x:Class="AmazonScraper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AmazonScraper"
+        mc:Ignorable="d"
+        Title="Scraper" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <DockPanel>
+                <Menu>
+                    <MenuItem Header="File">
+                    <MenuItem Header="Export"
+                              x:Name="ItemExport"
+                              Click="ItemExport_OnClick"/>
+               </MenuItem>
+                </Menu>
+
+                <Button x:Name="BtnScraper"
+                        DockPanel.Dock="Right"
+                        Width="50"
+                        Height="25"
+                        Content="Scrape"
+                        Margin="0,0,10,0"
+                        Click="BtnScraper_OnClick"/>
+
+                <TextBox DockPanel.Dock="Bottom"
+                         x:Name="TBPage"
+                         Height="20"
+                         Margin="0,0,10,0"/>
+
+            </DockPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <DataGrid ItemsSource="{Binding Entries}"/>
+        </Grid>
+
+    </Grid>
+</Window>
